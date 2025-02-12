@@ -1,10 +1,12 @@
 ---
 ---
 
-@use 'main
-{%- if jekyll.environment == 'production' -%}
-  .bundle
-{%- endif -%}
-';
+
+{%- capture bundle_suffix -%}
+  {%- if jekyll.environment == 'production' -%}.bundle{%- endif -%}
+{%- endcapture -%}
+
+@use 'main{{ bundle_suffix }}';
 
 /* append your custom style below */
+
